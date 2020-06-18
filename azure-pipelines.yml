@@ -75,13 +75,13 @@ jobs:
     continueOnError: true
     condition: or( eq(variables['Build.Reason'], 'Manual'), eq(variables['Build.Reason'], 'Schedule') )
 
-  - task: DownloadBuildArtifacts@0
-    inputs:
-        buildType: 'current'
-        downloadType: 'single'
-        artifactName: '$(Build.DefinitionName)_installer_Linux_ubuntu1804'
-        downloadPath: '$(System.ArtifactsDirectory)'
-    continueOnError: true
-    condition: or( eq(variables['Build.Reason'], 'Manual'), eq(variables['Build.Reason'], 'Schedule') )
+  ## Download build artifacts. this is probably more useful in Release pipelines.
+  # - task: DownloadBuildArtifacts@0
+  #   inputs:
+  #       buildType: 'current'
+  #       downloadType: 'single'
+  #       artifactName: '$(Build.DefinitionName)_installer_Linux_ubuntu1804'
+  #       downloadPath: '$(System.ArtifactsDirectory)'
+  #   continueOnError: true
+  #   condition: or( eq(variables['Build.Reason'], 'Manual'), eq(variables['Build.Reason'], 'Schedule') )
 
-# TODO: Add upload to NITRC task
